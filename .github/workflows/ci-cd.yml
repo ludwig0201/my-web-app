@@ -21,24 +21,23 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Ganti dengan versi Node.js yang digunakan
+          node-version: '16'  # Ganti dengan versi Node.js yang Anda gunakan
 
       # Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Run tests (opsional, jika ada)
+      # Run tests (Menjalankan pengujian)
       - name: Run tests
         run: npm test
 
-      # Build the app (opsional, jika diperlukan)
+      # Build the app (Opsional, jika perlu build)
       - name: Build app
         run: npm run build
 
-      # Deploy (jika ingin melakukan deploy ke server atau layanan lain)
+      # Deploy to Production (Opsional, jika ingin deploy)
       - name: Deploy to Production
         run: |
           echo "Deploying to production server..."
-          # Misalnya menggunakan Docker untuk deploy
           docker build -t my-web-app .
           docker run -d -p 3000:3000 my-web-app
